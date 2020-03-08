@@ -114,11 +114,14 @@ void Engine::parser() {
 			auto moves = MoveGenerator::getPseudoLegalMoves(bitboard.getBitBoards(), toMove);
 			for (auto &mv : moves)
 				std::cout << mv << std::endl;
+		} else if (input == "hint") {
+			std::cout << getBestMove(depthLevel, toMove) << std::endl;
 		} else if (input == "help") {
 			std::cout << "print_board (print for short) - prints out the current state of the board" << std::endl;
 			std::cout << "move (mv for short)           - makes a movement if valid. 'move' and 'mv' can be omitted" << std::endl;
 			std::cout << "set_depth (depth for short)   - specifies the search depth of the minimax algorithm. Used to adjust difficulty of the engine" << std::endl;
 			std::cout << "list                          - prints out a list of valid moves in the expected format" << std::endl;
+			std::cout << "hint                          - prints the move that the engine would make" << std::endl;
 			std::cout << "undo                          - takes a movement from the stack. Accepts an integer as argument to specify the amount of moves to be taken" << std::endl;
 			std::cout << "restart                       - starts a new match with the standard board configuration" << std::endl;
 			std::cout << "help                          - prints out this message with information about valid commands" << std::endl;
